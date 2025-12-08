@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kontakt — Twoja Firma</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="logo.svg" alt="Logo firmy" class="logo" />
+        <div class="brand-text">
+          <h1>Twoja Firma</h1>
+        </div>
+      </a>
+      <button id="navToggle4" class="nav-toggle" aria-label="Otwórz menu">☰</button>
+      <nav class="main-nav" id="mainNav4">
+        <ul>
+          <li><a href="index.html">Strona główna</a></li>
+          <li><a href="about.html">O firmie</a></li>
+          <li><a href="products.html">Produkty</a></li>
+          <li><a href="contact.html" class="active">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Kontakt</h2>
+
+    <section class="contact-info">
+      <p><strong>Adres:</strong> ul. Przykładowa 1, 00-000 Miasto</p>
+      <p><strong>E-mail:</strong> <a href="mailto:kontakt@twojafirma.pl">kontakt@twojafirma.pl</a></p>
+      <p><strong>Telefon:</strong> <a href="tel:+48123456789">+48 123 456 789</a></p>
+    </section>
+
+    <section class="contact-form">
+      <h3>Wyślij zapytanie</h3>
+      <!-- Formularz działa lokalnie jako mailto; do obsługi serwerowej użyj backendu -->
+      <form action="mailto:kontakt@twojafirma.pl" method="post" enctype="text/plain">
+        <label>
+          Imię i nazwisko<br />
+          <input type="text" name="Imie" required />
+        </label>
+        <label>
+          Firma<br />
+          <input type="text" name="Firma" />
+        </label>
+        <label>
+          E-mail<br />
+          <input type="email" name="Email" required />
+        </label>
+        <label>
+          Telefon<br />
+          <input type="tel" name="Telefon" />
+        </label>
+        <label>
+          Treść zapytania<br />
+          <textarea name="Wiadomosc" rows="6" required></textarea>
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn">Wyślij</button>
+          <button type="reset" class="btn btn-outline">Wyczyść</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year4"></span> Twoja Firma</p>
+      <nav class="footer-nav">
+        <a href="index.html">Strona główna</a>
+        <a href="about.html">O firmie</a>
+        <a href="products.html">Produkty</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
