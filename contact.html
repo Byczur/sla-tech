@@ -6,6 +6,16 @@
   <title>Kontakt — SLA-TECH</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preload" as="image" href="background.jpg">
+  
+</head> 
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.main-nav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+</script>
 
 <body>
   <header class="site-header">
@@ -13,7 +23,10 @@
       <a class="brand" href="index.html">
         <img src="logo.png" alt="Logo firmy" class="logo" />
       </a>
-      <button id="navToggle4" class="nav-toggle" aria-label="Otwórz menu">☰</button>
+      <button class="nav-toggle" aria-label="Menu">
+  ☰
+</button>
+
       <nav class="main-nav" id="mainNav4">
         <ul>
           <li><a href="index.html">Strona główna</a></li>
