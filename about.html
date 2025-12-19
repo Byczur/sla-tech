@@ -8,35 +8,32 @@
   <link rel="preload" as="image" href="background.jpg">
 
 </head>
-<script>
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.main-nav');
 
-  toggle.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-</script>
 
 <body>
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <img src="logo.png" alt="Logo firmy" class="logo" />
-      </a>
-      <button class="nav-toggle" aria-label="Menu">
-  ☰
-</button>
+  <div class="container header-inner">
 
-      <nav class="main-nav" id="mainNav2">
-        <ul>
-          <li><a href="index.html">Strona główna</a></li>
-          <li><a href="about.html" class="active">O firmie</a></li>
-          <li><a href="products.html">Produkty</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <a class="brand" href="index.html">
+      <img src="logo sla tech new.png" alt="Logo firmy" class="logo">
+    </a>
+
+    <button class="nav-toggle" aria-label="Menu">
+      ☰
+    </button>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="about.html">O firmie</a></li>
+        <li><a href="products.html">Produkty</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
 
   <main >
     <article class="about">
@@ -59,5 +56,6 @@
   </footer>
 
   <script src="script.js"></script>
+
 </body>
 </html>

@@ -8,63 +8,36 @@
   <link rel="preload" as="image" href="background.jpg">
 
 </head>
-<script>
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.main-nav');
 
-  toggle.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-</script>
 
 <body>
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <img src="logo.png" alt="Logo firmy" class="logo" />
-      </a>
-      <button class="nav-toggle" aria-label="Menu">
-  ☰
-</button>
+  <div class="container header-inner">
 
-      <nav class="main-nav" id="mainNav3">
-        <ul>
-          <li><a href="index.html">Strona główna</a></li>
-          <li><a href="about.html">O firmie</a></li>
-          <li><a href="products.html" class="active">Produkty</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <a class="brand" href="index.html">
+      <img src="logo sla tech new.png" alt="Logo firmy" class="logo">
+    </a>
+
+    <button class="nav-toggle" aria-label="Menu">
+      ☰
+    </button>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="about.html">O firmie</a></li>
+        <li><a href="products.html">Produkty</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
 
   <main class="container">
-  
-  Armatura instrumentalna (precyzyjna) – zawory, złączki, rurki …
-<br>
-Złączki z pierścieniami zaciskowymi,
-<br>
-Kształtki do spawania, kołnierze, kształtki gwintowane, płaskowniki, kątowniki, profile.
-  <br>
 
-               Reduktory ciśnienia,
-<br>
-               Punkty poboru i stacje rozprężania
-<br>
-               Manometry, przetworniki ciśnienia i temperatury
-<br>
-               Węże stalowe w oplocie, teflonowe, …
-<br>
-               Szybkozłącza
-<br>
-Śruby, nakrętki, podkładki, nierdzewne i ocynkowane
-<br>
-Uszczelki różnego rodzaju
-<br>
-Zestawy naprawcze do armatury
-    
-
-    <h2>Produkty</h2>
+    <h2 class="products-h2">Produkty</h2>
 
 <section class="product-tiles">
   <div class="tile">
@@ -77,11 +50,57 @@ Zestawy naprawcze do armatury
     <p>Ze stali nierdzewnej, czarnej, miedziane. Ze szwem i bez szwu, w różnych gatunkach i normach DIN, ISO, ASTM.</p>
   </div>
 
+  <div class="tile">
+    <h3>Armatura instrumentalna (precyzyjna)</h3>
+  </div>
+
+  <div class="tile">
+    <h3>Złączki</h3>
+    <p>Z pierścieniami zaciskowymi, wtykowe, zaciskowe, ze stali nierdzewnej, mosiężne, do gazu, do wody.</p>
+  </div>
+
+  <div class="tile">
+    <h3>Kształtki do spawania, kołnierze, kształtki gwintowane, płaskowniki, kątowniki, profile</h3>
+  </div>
+
+  <div class="tile">
+    <h3>Reduktory ciśnienia</h3>
+  </div>
+
+  <div class="tile">
+    <h3>Punkty poboru i stacje rozprężania</h3>
+  </div>
+
+  <div class="tile">
+    <h3>Manometry, czujniki i przetworniki ciśnienia, temperatury</h3>
+  </div>
+
+  <div class="tile">
+    <h3>Węże</h3>
+    <h3>Stalowe w oplocie, teflonowe, poliuretanowe.</h3>
+  </div>
+
+  <div class="tile">
+    <h3>Szybkozłączki</h3>
+  </div>
+
+  <div class="tile">
+    <h3>Śruby, nakrętki, podkładki, nierdzewne i ocynkowane</h3>
+  </div>
+
+  <div class="tile">
+    <h3>Uszczelki różnego rodzaju</h3>
+  </div>
+
+  <div class="tile">
+    <h3>Zestawy naprawcze, zestawy uszczelnień do armatury</h3>
+  </div>
+
 </section>
 <br>
 <section class="product-cta">
   <p>Chcesz ofertę na konkretne elementy? Prześlij zapytanie z listą części — przygotujemy wycenę.</p>
-  <a class="btn" href="kontakt.html">Wyślij zapytanie</a>
+  <a class="btn" href="contact.html">Wyślij zapytanie</a>
 </section>
 
 
@@ -165,5 +184,6 @@ Zestawy naprawcze do armatury
   </footer>
 
   <script src="script.js"></script>
+
 </body>
 </html>

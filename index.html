@@ -8,47 +8,38 @@
   <link rel="preload" as="image" href="background.jpg">
 
 </head>
-<script>
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.main-nav');
 
-  toggle.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-</script>
 
 <body>
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <img src="logo.png" alt="Logo firmy" class="logo" />
-        <div class="brand-text">
-        
-          <p class="tag">Dystrybucja armatury przemysłowej</p>
-        </div>
-      </a>
+  <div class="container header-inner">
 
-      <button class="nav-toggle" aria-label="Menu">
-  ☰
-</button>
+    <a class="brand" href="index.html">
+      <img src="logo sla tech new.png" alt="Logo firmy" class="logo">
+    </a>
 
+    <button class="nav-toggle" aria-label="Menu">
+      ☰
+    </button>
 
-      <nav class="main-nav" id="mainNav">
-        <ul>
-          <li><a href="index.html">Strona główna</a></li>
-          <li><a href="about.html">O firmie</a></li>
-          <li><a href="products.html">Produkty</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="about.html">O firmie</a></li>
+        <li><a href="products.html">Produkty</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
 
   <main>
     <section class="hero">
       <div class=" container hero-inner hero-box">
-        <h2>Dystrybucja armatury przemysłowej</h2>
-        <p>Cos tu mozna napisac</p>
+        <h1>Dystrybucja armatury przemysłowej</h1>
+        <h1 class="hero-subtitle">Kompleksowe zaoparzenie firm</h1>
         <div class="hero-cta">
           <a class="btn" href="products.html">Zobacz produkty</a>
         
@@ -148,6 +139,7 @@
   </footer>
 
   <script src="script.js"></script>
+
 </body>
 </html>
 

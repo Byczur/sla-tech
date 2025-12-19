@@ -112,10 +112,6 @@ ul {
   min-height: 60px;
 }
 
-.logo {
-  width: 201px;
-  height: 60px;
-}
 
 .main-nav ul {
   list-style: none;
@@ -224,13 +220,15 @@ ul {
 }
 
 .tile {
-  background: var(--card-bg);
-  border: 1px solid var(--border-soft);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.82); /* WIĘKSZA PRZEZROCZYSTOŚĆ */
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 16px;
   padding: 1rem;
-  box-shadow: 0 6px 14px rgba(15,23,42,0.06);
-  transition: transform 0.15s ease;
+  box-shadow: 0 10px 28px rgba(15,23,42,0.12);
+  backdrop-filter: blur(4px);            /* delikatny glass effect */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 
 .tile:hover {
   transform: translateY(-3px);
@@ -299,8 +297,9 @@ ul {
 .contact-form form {
   display: grid;
   gap: 0.8rem;
-  max-width: 700px;
+  width: 100%;
 }
+
 
 input, textarea {
   padding: 0.6rem;
@@ -356,11 +355,12 @@ input, textarea {
     display: none;
     position: absolute;
     right: 1rem;
-    top: 80px;
+    top: 90px;
     background: #fff;
-    padding: 0.8rem;
-    border-radius: 10px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    padding: 1rem;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    z-index: 999;
   }
 
   .main-nav.open {
@@ -369,8 +369,10 @@ input, textarea {
 
   .main-nav ul {
     flex-direction: column;
+    gap: 0.5rem;
   }
 }
+
 
 
 
@@ -500,8 +502,12 @@ details p,
 .about p,
 .about li {
   color: #ebebeb;   /* jasny, czytelny, ale nie biały */
-  font-size: 1.05rem;
+  font-size: 1.5rem;
   line-height: 1.65;
+}
+
+.about h2 {
+  font-size: 2rem;
 }
 
 /* =========================
@@ -518,7 +524,8 @@ details p,
 }
 
 .hero-box h1,
-.hero-box h2 {
+.hero-box h2, 
+.hero-box h3 {
   color: #ffffff;
   margin-top: 0;
 }
@@ -555,5 +562,1348 @@ html {
 
   .main-nav.open {
     display: block;
+  }
+}
+
+.hero h1 {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.hero .hero-subtitle {
+  color: #ffffff;        /* TEN SAM KOLOR */
+  font-weight: 700;      /* TEN SAM KRÓJ / GRUBOŚĆ */
+  font-size: 1.2rem;     /* MNIEJSZE NIŻ H1 */
+  margin-top: 0.4rem;
+}
+
+.products-h2 {
+  font-size: 1.75rem;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .contact-box {
+    max-width: 100%;
+  }
+}
+
+/* ====== NAPRAWA SZEROKOŚCI STRONY KONTAKT ====== */
+
+.contact-box {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  background: rgba(245, 248, 252, 0.92);
+  padding: 2rem;
+  border-radius: 18px;
+}
+
+
+
+.contact-form form {
+  max-width: 100%;
+}
+
+.contact-section {
+  width: 100%;
+}
+
+
+.text-box {
+  max-width: var(--container-width);
+}
+
+/* =========================
+   KONTAKT – PRZYWRÓCENIE KOLORÓW TEKSTU
+========================= */
+.contact-box,
+.contact-box p,
+.contact-box label,
+.contact-box h2,
+.contact-box h3 {
+  color: #1e293b; /* ciemny, czytelny jak wcześniej */
+}
+
+.contact-box strong {
+  color: #0f172a;
+}
+
+.contact-box a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-box a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   FORMULARZ – PEŁNA SZEROKOŚĆ POL
+========================= */
+.contact-form form {
+  width: 100%;
+}
+
+.contact-form label {
+  display: block;
+  width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* textarea trochę wyższa i „oddychająca” */
+.contact-form textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.form-actions .btn {
+  padding: 0.7rem 1.6rem;
+}
+
+
+/* =========================
+   LOGO – LEPSZE WTOPIENIE W HEADER
+========================= */
+.brand {
+  background: rgba(255, 255, 255);
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.logo {
+  display: block;
+  height: 58px;
+  width: auto;
+}
+
+
+/* =========================
+   LOGO – HOVER EFFECT
+========================= */
+.brand {
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.brand:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+  background: rgba(255,255,255,0.98);
+}
+
+.brand:hover .logo {
+  filter: brightness(1.05) contrast(1.05);
+}
+
+.header-inner {
+  min-height: 90px;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 90px;
+    right: 1rem;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    z-index: 9999;
+  }
+
+  .main-nav.open {
+    display: block;
+  }
+}
+
+/* =========================
+   MOBILE MENU – FINAL FIX
+========================= */
+@media (max-width: 900px) {
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 90px;
+    right: 1rem;
+
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(6px);
+
+    padding: 1rem 1.2rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+
+    z-index: 99999;
+    min-width: 220px;
+  }
+
+  .main-nav.open {
+    display: block;
+  }
+
+  .main-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .main-nav a {
+    color: #0f172a;
+    font-weight: 600;
+    padding: 0.6rem 0.8rem;
+    border-radius: 10px;
+    text-decoration: none;
+  }
+
+  .main-nav a:hover {
+    background: rgba(11, 58, 102, 0.1);
+  }
+}
+
+.main-nav {
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.main-nav.open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   FIX WARSTW – MENU NAD WSZYSTKIM
+========================= */
+.site-header {
+  position: relative;
+  z-index: 99999;
+}
+
+@media (max-width: 900px) {
+  .main-nav {
+    position: absolute;
+    z-index: 100000;
+  }
+}
+
+body::before {
+  z-index: -1;
+}
+
+
+/* =========================
+   MENU – HOVER & ACTIVE
+========================= */
+.main-nav a {
+  position: relative;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease;
+}
+
+/* hover */
+.main-nav a:hover {
+  background-color: rgba(11, 58, 102, 0.15);
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+/* aktywna strona */
+.main-nav a.active {
+  background-color: rgba(11, 58, 102, 0.25);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+
+@media (max-width: 900px) {
+  .main-nav a:hover {
+    background-color: rgba(11, 58, 102, 0.18);
+    transform: none; /* bez przesuwania palcem */
+  }
+
+  .main-nav a {
+    padding: 0.7rem 1rem;
+    border-radius: 12px;
+  }
+}
+
+
+.nav-toggle {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+
+.nav-toggle:active {
+  transform: scale(0.95);
+}
+
+
+
+/* =========================
+   FIX: brak poziomego scrolla (MOBILE)
+========================= */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-attachment: scroll;
+}
+
+@media (min-width: 1024px) {
+  body {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .tile {
+    margin: 0;
+  }
+}
+
+
+/* =========================
+   ZMIENNE I PODSTAWY
+========================= */
+:root {
+  --primary: #0b3a66;
+  --primary-hover: #0e4a80;
+  --panel-bg: rgba(245, 248, 252, 0.92);
+  --card-bg: rgba(255, 255, 255, 0.96);
+  --border-soft: rgba(15, 23, 42, 0.08);
+  --radius: 14px;
+  --container-width: 1100px;
+  --text-main: #f1f5f9;      /* główny tekst – jasny */
+  --text-muted: #cbd5e1;    /* opisy */
+  --text-dark: #0f172a;     /* tekst na jasnych kartach */
+  --accent: #1e90ff; 
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* =========================
+   TŁO GLOBALNE (OBRAZ)
+========================= */
+body {
+  color: var(--text-main);
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  line-height: 1.55;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* overlay dla czytelności */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 40, 60, 0.45);
+  z-index: -1;
+}
+
+/* =========================
+   UKŁAD
+========================= */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+  
+  border-radius: var(--radius);
+}
+
+main {
+  margin-bottom: 2rem;
+  flex: 1;
+}
+
+/* =========================
+   NAGŁÓWKI I TEKST
+========================= */
+h1, h2, h3 {
+  color: #ffffff;
+  margin-top: 0;
+}
+
+p, li {
+  color: var(--text-muted);
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+/* =========================
+   HEADER / NAV
+========================= */
+.site-header {
+  background: rgba(10, 25, 45, 0.65);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  height: 90px;              /* ← STAŁA WYSOKOŚĆ */
+  display: flex;
+  align-items: center;
+}
+
+.header-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: inherit;
+  min-height: 60px;
+}
+
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  color: var(--primary);
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  background: rgba(11, 58, 102, 0.1);
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 1.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  padding: 2rem 0;
+}
+
+.hero h2 {
+  font-size: 1.6rem;
+}
+
+.hero h1 {
+  color: #ffffff;
+}
+
+
+.hero p {
+  color: #e2e8f0;
+  background: rgba(15, 23, 42, 0.55);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.hero-cta {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   PRZYCISKI
+========================= */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  background: #0b3c6d;
+  color: #ffffff;
+  padding: 0.65rem 1.1rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background: #125ea3;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--border-soft);
+}
+
+/* WYRÓŻNIONY KONTAKT */
+.btn-contact-main {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.75rem 1.4rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(11,58,102,0.45);
+}
+
+.btn-contact-main:hover {
+  background: var(--primary-hover);
+}
+
+/* =========================
+   KAFELKI PRODUKTÓW
+========================= */
+.product-tiles {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.tile {
+  background: rgba(255, 255, 255, 0.82); /* WIĘKSZA PRZEZROCZYSTOŚĆ */
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 10px 28px rgba(15,23,42,0.12);
+  backdrop-filter: blur(4px);            /* delikatny glass effect */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.tile:hover {
+  transform: translateY(-3px);
+}
+
+.tile h3 {
+  color: var(--primary);
+  margin-bottom: 0.3rem;
+}
+
+/* =========================
+   PARTNERZY
+========================= */
+.partners {
+  background: rgba(255,255,255,0.95);
+  padding: 1.5rem 1.5rem;
+  margin: 3rem auto;
+  max-width: 1100px;
+  border-radius: 20px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.18);
+}
+
+
+
+.partners h3 {
+  color: #0f172a;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.partners-slider {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slide-track {
+  display: flex;
+  width: min-content;
+  gap: 3rem;
+  animation: scroll 70s linear infinite;
+}
+
+.slide-track img {
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+
+
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================
+   FORMULARZ
+========================= */
+.contact-form form {
+  display: grid;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+
+input, textarea {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-soft);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.site-footer {
+  background: rgba(10, 25, 45, 0.65);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: #e5eef7;
+  margin-top: auto;
+}
+
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;   /* ← TO JEST KLUCZOWA LINIJKA */
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+
+.footer-nav a {
+  text-decoration: none;
+  margin-left: 0.6rem;
+  color: var(--text-muted);
+}
+
+.site-footer p,
+.site-footer a {
+  color: #e5eef7;
+}
+
+.site-footer a:hover {
+  color: #ffffff;
+}
+
+/* =========================
+   RESPONSYWNOŚĆ
+========================= */
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    right: 1rem;
+    top: 90px;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    z-index: 999;
+  }
+
+  .main-nav.open {
+    display: block;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+
+
+
+.brand-text h1 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.brand-text p {
+  margin: 0;
+  line-height: 1.1;
+  min-height: 1.1em;
+}
+
+.site-header,
+.site-footer {
+  color: #e5eef7;
+}
+
+.site-header a,
+.site-footer a {
+  color: #e5eef7;
+}
+
+.site-header a:hover,
+.site-footer a:hover {
+  color: #ffffff;
+}
+
+.site-header,
+.site-footer {
+  width: 100%;
+}
+
+.text-box {
+  background: rgba(255, 255, 255, 0.88);
+  color: #1e293b;              /* CIEMNIEJSZY TEKST */
+  padding: 1.4rem 1.6rem;
+  border-radius: 16px;
+  max-width: 620px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+}
+
+.text-box h1,
+.text-box h2 {
+  color: #0f172a;              /* wyraźny nagłówek */
+}
+
+.text-box p {
+  color: #334155;              /* czytelny opis */
+}
+
+.wyslij {
+  color: #0f172a;
+}
+
+.main-nav a {
+  position: relative;
+  color: #e5eef7;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.main-nav a:hover {
+  background: rgba(255,255,255,0.15);
+  color: #ffffff;
+}
+
+/* =========================
+   MAIL / TELEFON – BEZ NIEBIESKIEGO LINKU
+========================= */
+.contact-info a,
+.contact-details a {
+  color: inherit;        /* ← KLUCZ */
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+.contact-info a:hover,
+.contact-details a:hover {
+  color: var(--primary);  /* delikatny hover */
+  text-decoration: underline;
+}
+
+/* =========================
+   OPISY KATEGORII PRODUKTÓW – LEPSZY KONTRAST
+========================= */
+.tile p,
+details p,
+.product-tiles p {
+  color: #475569;        /* czytelny, ciemny szaro-niebieski */
+  font-weight: 400;
+}
+
+/* =========================
+   SEKCJA CTA – ZAPYTANIE O PRODUKTY
+========================= */
+.product-cta {
+  background: rgba(255,255,255,0.92);
+  padding: 1.2rem 1.8rem;
+  border-radius: 18px;
+  max-width: 1200px;
+  margin: 2rem auto;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.2);
+  text-align: left;
+}
+
+.product-cta p {
+  color: #334155;      /* czytelny tekst */
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.product-cta .btn {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.product-cta .btn:hover {
+  background: var(--primary-hover);
+}
+
+/* =========================
+   O FIRMIE – POPRAWA CZYTELNOŚCI TEKSTU
+========================= */
+.about p,
+.about li {
+  color: #ebebeb;   /* jasny, czytelny, ale nie biały */
+  font-size: 1.5rem;
+  line-height: 1.65;
+}
+
+.about h2 {
+  font-size: 2rem;
+}
+
+/* =========================
+   HERO – BOXY DLA TEKSTU
+========================= */
+.hero-box {
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(4px);
+  padding: 1.4rem 1.6rem;
+  border-radius: 18px;
+  max-width: 1100px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.25);
+  margin-bottom: 1.4rem;
+}
+
+.hero-box h1,
+.hero-box h2, 
+.hero-box h3 {
+  color: #ffffff;
+  margin-top: 0;
+}
+
+.hero-box p {
+  color: #e5eef7;
+  margin-bottom: 0;
+}
+
+/* =========================
+   FIX: brak skakania layoutu
+========================= */
+.site-header .container,
+.site-footer .container,
+main .container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .main-nav.open {
+    display: block;
+  }
+}
+
+.hero h1 {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.hero .hero-subtitle {
+  color: #ffffff;        /* TEN SAM KOLOR */
+  font-weight: 700;      /* TEN SAM KRÓJ / GRUBOŚĆ */
+  font-size: 1.2rem;     /* MNIEJSZE NIŻ H1 */
+  margin-top: 0.4rem;
+}
+
+.products-h2 {
+  font-size: 1.75rem;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .contact-box {
+    max-width: 100%;
+  }
+}
+
+/* ====== NAPRAWA SZEROKOŚCI STRONY KONTAKT ====== */
+
+.contact-box {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  background: rgba(245, 248, 252, 0.92);
+  padding: 2rem;
+  border-radius: 18px;
+}
+
+
+
+.contact-form form {
+  max-width: 100%;
+}
+
+.contact-section {
+  width: 100%;
+}
+
+
+.text-box {
+  max-width: var(--container-width);
+}
+
+/* =========================
+   KONTAKT – PRZYWRÓCENIE KOLORÓW TEKSTU
+========================= */
+.contact-box,
+.contact-box p,
+.contact-box label,
+.contact-box h2,
+.contact-box h3 {
+  color: #1e293b; /* ciemny, czytelny jak wcześniej */
+}
+
+.contact-box strong {
+  color: #0f172a;
+}
+
+.contact-box a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-box a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   FORMULARZ – PEŁNA SZEROKOŚĆ POL
+========================= */
+.contact-form form {
+  width: 100%;
+}
+
+.contact-form label {
+  display: block;
+  width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* textarea trochę wyższa i „oddychająca” */
+.contact-form textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.form-actions .btn {
+  padding: 0.7rem 1.6rem;
+}
+
+
+/* =========================
+   LOGO – LEPSZE WTOPIENIE W HEADER
+========================= */
+.brand {
+  background: rgba(255, 255, 255);
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.logo {
+  display: block;
+  height: 58px;
+  width: auto;
+}
+
+
+/* =========================
+   LOGO – HOVER EFFECT
+========================= */
+.brand {
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.brand:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+  background: rgba(255,255,255,0.98);
+}
+
+.brand:hover .logo {
+  filter: brightness(1.05) contrast(1.05);
+}
+
+.header-inner {
+  min-height: 90px;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 90px;
+    right: 1rem;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    z-index: 9999;
+  }
+
+  .main-nav.open {
+    display: block;
+  }
+}
+
+/* =========================
+   MOBILE MENU – FINAL FIX
+========================= */
+@media (max-width: 900px) {
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 90px;
+    right: 1rem;
+
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(6px);
+
+    padding: 1rem 1.2rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+
+    z-index: 99999;
+    min-width: 220px;
+  }
+
+  .main-nav.open {
+    display: block;
+  }
+
+  .main-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .main-nav a {
+    color: #0f172a;
+    font-weight: 600;
+    padding: 0.6rem 0.8rem;
+    border-radius: 10px;
+    text-decoration: none;
+  }
+
+  .main-nav a:hover {
+    background: rgba(11, 58, 102, 0.1);
+  }
+}
+
+.main-nav {
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.main-nav.open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   FIX WARSTW – MENU NAD WSZYSTKIM
+========================= */
+.site-header {
+  position: relative;
+  z-index: 99999;
+}
+
+@media (max-width: 900px) {
+  .main-nav {
+    position: absolute;
+    z-index: 100000;
+  }
+}
+
+body::before {
+  z-index: -1;
+}
+
+
+/* =========================
+   MENU – HOVER & ACTIVE
+========================= */
+.main-nav a {
+  position: relative;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease;
+}
+
+/* hover */
+.main-nav a:hover {
+  background-color: rgba(11, 58, 102, 0.15);
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+/* aktywna strona */
+.main-nav a.active {
+  background-color: rgba(11, 58, 102, 0.25);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+
+@media (max-width: 900px) {
+  .main-nav a:hover {
+    background-color: rgba(11, 58, 102, 0.18);
+    transform: none; /* bez przesuwania palcem */
+  }
+
+  .main-nav a {
+    padding: 0.7rem 1rem;
+    border-radius: 12px;
+  }
+}
+
+
+.nav-toggle {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+
+.nav-toggle:active {
+  transform: scale(0.95);
+}
+
+/* =========================
+   PRODUKTY – MOBILE FIX
+========================= */
+@media (max-width: 768px) {
+  .product-tiles {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .product-tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .product-tiles {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   FIX: brak poziomego scrolla (MOBILE)
+========================= */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-attachment: scroll;
+}
+
+@media (min-width: 1024px) {
+  body {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .tile {
+    margin: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .tile {
+    padding: 1.2rem;
+  }
+}
+
+/* =========================
+   FIX: kafelki nie wychodzą poza ekran (MOBILE)
+========================= */
+
+.product-tiles {
+  overflow: hidden;        /* KLUCZ */
+}
+
+.tile {
+  overflow: hidden;        /* KLUCZ */
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .product-tiles {
+    padding-right: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .tile {
+    max-width: 100%;
+    transform: translateZ(0); /* reset bugów GPU */
+  }
+}
+
+/* =========================
+   FINAL FIX – MOBILE WIDTH BUG
+========================= */
+
+/* NIGDY nie używaj 100vw w content */
+.product-tiles,
+.tile {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Mobile: odejmujemy padding containera */
+@media (max-width: 900px) {
+  .product-tiles {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .tile {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .container > .product-tiles {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
 }
