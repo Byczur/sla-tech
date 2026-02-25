@@ -2,11 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── MENU TOGGLE ──────────────────────────────────────────
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.main-nav');
-
   if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
+    toggle.addEventListener('click', () => nav.classList.toggle('open'));
   }
 
   // ── ROK W STOPCE ─────────────────────────────────────────
@@ -74,52 +71,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentLang = localStorage.getItem('slatech_lang') || 'pl';
 
-  // SVG flagi inline – nie zależą od systemu operacyjnego
-  const FLAG_PL = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14" width="22" height="15" style="border-radius:2px;display:block;flex-shrink:0;align-self:center">
-    <rect width="20" height="7" fill="#fff"/>
-    <rect y="7" width="20" height="7" fill="#dc143c"/>
-  </svg>`;
+  // Flagi jako SVG — bez emoji, działa wszędzie
+  function makeFlag(type) {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', type === 'pl' ? '0 0 20 14' : '0 0 60 30');
+    svg.setAttribute('width', '22');
+    svg.setAttribute('height', '15');
+    svg.style.cssText = 'border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,0.15);';
 
-  const FLAG_EN = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="22" height="15" style="border-radius:2px;display:block;flex-shrink:0;align-self:center">
-    <clipPath id="a"><path d="M0 0v30h60V0z"/></clipPath>
-    <clipPath id="b"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath>
-    <g clip-path="url(#a)">
-      <path d="M0 0v30h60V0z" fill="#012169"/>
-      <path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/>
-      <path d="M0 0l60 30m0-30L0 30" clip-path="url(#b)" stroke="#C8102E" stroke-width="4"/>
-      <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/>
-      <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/>
-    </g>
-  </svg>`;
-
-  function t(key) {
-    const entry = translations[key];
-    if (!entry) return '';
-    return entry[currentLang] || entry['pl'];
+    if (type === 'pl') {
+      const top = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      top.setAttribute('width', '20'); top.setAttribute('height', '7'); top.setAttribute('fill', '#fff');
+      const bot = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      bot.setAttribute('y', '7'); bot.setAttribute('width', '20'); bot.setAttribute('height', '7'); bot.setAttribute('fill', '#dc143c');
+      svg.appendChild(top); svg.appendChild(bot);
+    } else {
+      svg.innerHTML = `
+        <defs>
+          <clipPath id="uk-a"><path d="M0 0v30h60V0z"/></clipPath>
+          <clipPath id="uk-b"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath>
+        </defs>
+        <g clip-path="url(#uk-a)">
+          <path d="M0 0v30h60V0z" fill="#012169"/>
+          <path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/>
+          <path d="M0 0l60 30m0-30L0 30" clip-path="url(#uk-b)" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/>
+          <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/>
+        </g>`;
+    }
+    return svg;
   }
 
-  function getBtnHTML(lang) {
-    if (lang === 'pl') {
-      return FLAG_EN + '<span>EN</span>';
-    } else {
-      return FLAG_PL + '<span>PL</span>';
-    }
+  function buildBtn(btn) {
+    btn.innerHTML = '';
+    // Flaga — język do którego przełączymy (odwrotny)
+    const flagType = currentLang === 'pl' ? 'en' : 'pl';
+    const label    = currentLang === 'pl' ? 'EN' : 'PL';
+
+    const flag = makeFlag(flagType);
+    const span = document.createElement('span');
+    span.textContent = label;
+
+    btn.appendChild(flag);
+    btn.appendChild(span);
+    btn.setAttribute('aria-label', currentLang === 'pl' ? 'Switch to English' : 'Przełącz na polski');
   }
 
   function applyTranslations() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      el.textContent = t(key);
+      const entry = translations[key];
+      if (entry) el.textContent = entry[currentLang] || entry['pl'];
     });
 
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-      el.placeholder = t(el.getAttribute('data-i18n-placeholder'));
-    });
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.innerHTML = getBtnHTML(currentLang);
-      btn.setAttribute('aria-label', currentLang === 'pl' ? 'Switch to English' : 'Przełącz na polski');
-    });
+    document.querySelectorAll('.lang-btn').forEach(btn => buildBtn(btn));
   }
 
   function switchLang() {
@@ -128,13 +133,13 @@ document.addEventListener('DOMContentLoaded', () => {
     applyTranslations();
   }
 
+  // Dodaj przycisk do każdego menu
   document.querySelectorAll('.main-nav ul').forEach(ul => {
-    const li = document.createElement('li');
+    const li  = document.createElement('li');
     const btn = document.createElement('button');
     btn.className = 'lang-btn';
-    btn.innerHTML = getBtnHTML(currentLang);
-    btn.setAttribute('aria-label', currentLang === 'pl' ? 'Switch to English' : 'Przełącz na polski');
     btn.addEventListener('click', switchLang);
+    buildBtn(btn);
     li.appendChild(btn);
     ul.appendChild(li);
   });
